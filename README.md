@@ -13,29 +13,28 @@ Maceió, Alagoas.
 
 ## Arquitetura
 
-O projeto agora é um app único Next full-stack:
+O projeto é um app único Next full-stack:
 
 ```txt
-src/
-  app/
-    mapa/
-    admin/
-    api/
-  components/
-  lib/
-  server/
-    domain/
-    application/
-    repositories/
-    http/
+app/
+  api/
+  mapa/
+  admin/
+components/
+lib/
+server/
+  domain/
+  application/
+  repositories/
+  http/
 ```
 
-- `src/app`: páginas, layout e rotas HTTP do Next.
-- `src/app/api`: camada HTTP usando `NextResponse`.
-- `src/server/domain`: tipos e regras de domínio.
-- `src/server/application`: casos de uso.
-- `src/server/repositories`: persistência em memória para o MVP.
-- `src/lib`: fixtures, tipos compartilhados e cliente HTTP usado pelo frontend.
+- `app`: páginas, layout e rotas HTTP do Next.
+- `app/api`: camada HTTP usando `NextResponse`.
+- `server/domain`: tipos e regras de domínio.
+- `server/application`: casos de uso.
+- `server/repositories`: persistência em memória para o MVP.
+- `lib`: fixtures, tipos compartilhados e cliente HTTP usado pelo frontend.
 
 ## Rodando localmente
 
@@ -59,7 +58,7 @@ Abra:
 
 Credencial administrativa de desenvolvimento:
 
-- E-mail: `admin@asal.local`
+- E-mail: `admin@vigia.local`
 - Senha: `admin123`
 
 ## Scripts
