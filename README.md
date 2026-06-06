@@ -1,7 +1,6 @@
 # Vigia Maceió
 
-MVP acadêmico para visualizar um índice fictício de criminalidade por região em
-Maceió, Alagoas.
+MVP acadêmico para visualizar o índice de criminalidade por região em Maceió.
 
 ## Stack
 
@@ -86,10 +85,3 @@ Rotas administrativas:
 - `GET /api/admin/dashboard`
 - `GET /api/admin/reports`
 - `POST /api/admin/reports/[id]/review`
-
-## Observação
-
-O backend Spring, Docker e a estrutura de monorepo foram removidos nesta fase
-para simplificar a apresentação do MVP. A arquitetura interna do Next foi
-organizada para permitir trocar os repositories em memória por banco de dados
-depois, sem reescrever as telas.
