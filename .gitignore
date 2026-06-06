@@ -10,4 +10,3 @@ target/
 .env.local
 next-env.d.ts
 tsconfig.tsbuildinfo
-PLANO_DESENVOLVIMENTO_ASAL.md
