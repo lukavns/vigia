@@ -1,0 +1,12 @@
+name,category,profile,address_text,neighborhood_name,latitude,longitude,source,status,opening_hours,coordinate_status
+Mercado do Artesanato,Mercado,unknown,"Maceio, AL",Centro,-9.665800,-35.721900,prefeitura_maceio,active,"Segunda a sexta: 8h às 17h; Sábado: 8h às 15h; Domingo: 8h às 12h",aproximada
+Mercado e Feira do Benedito Bentes,Feira livre,healthy,"Benedito Bentes, Maceio, AL",Benedito Bentes,-9.558600,-35.737600,prefeitura_maceio,active,"Segunda à quinta: 5h às 16h; Sexta, sábado e domingo: 5h às 13h",aproximada
+Mercado da Produção e Popular,Mercado,mixed,"Levada, Maceio, AL",Centro,-9.660900,-35.739600,prefeitura_maceio,active,"Segunda a sábado: 5h às 15h; Domingo: 5h às 13h",aproximada
+Mercado e Feira do Jacintinho,Feira livre,healthy,"Jacintinho, Maceio, AL",Jacintinho,-9.624500,-35.728900,prefeitura_maceio,active,"Segunda a sábado: 5h às 14h; Domingo: 5h às 13h",aproximada
+Mercado e Feira do Tabuleiro,Feira livre,healthy,"Tabuleiro do Martins, Maceio, AL",Tabuleiro do Martins,-9.594000,-35.764500,prefeitura_maceio,active,"Todos os dias: 5h às 15h",aproximada
+Mercado do Caetés,Mercado,mixed,"Caetés, Maceio, AL",Benedito Bentes,-9.548500,-35.756500,prefeitura_maceio,active,"Segunda a sábado: 6h às 17h; Domingo: 6h às 12h",aproximada
+Shopping Popular dos Caetés,Mercado,unknown,"Caetés, Maceio, AL",Benedito Bentes,-9.549200,-35.756100,prefeitura_maceio,active,"Terça a sábado: 10h às 21h",aproximada
+Shopping Popular Centro,Mercado,unknown,"Centro, Maceio, AL",Centro,-9.665400,-35.735200,prefeitura_maceio,active,"Segunda a sexta: 8h às 18h; Sábado: 8h às 14h",aproximada
+Mercado do Jaraguá,Mercado,mixed,"Jaraguá, Maceio, AL",Centro,-9.669700,-35.724900,prefeitura_maceio,active,"Segunda a sábado: 6h às 16h; Domingo: 6h às 15h",aproximada
+Centro Pesqueiro de Jaraguá,Mercado,healthy,"Jaraguá, Maceio, AL",Centro,-9.672300,-35.719700,prefeitura_maceio,active,"Todos os dias: 6h às 15h",aproximada
+Feira da Jatiúca,Feira livre,healthy,"Jatiúca, Maceio, AL",Ponta Verde,-9.650300,-35.704900,prefeitura_maceio,active,"Segunda a sexta: 6h às 16h; Sábado: 6h às 15h; Domingo: 6h às 12h",aproximada
