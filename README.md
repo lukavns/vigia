@@ -1,87 +1,49 @@
 # Vigia Maceió
 
-MVP acadêmico para visualizar o índice de criminalidade por região em Maceió.
+Protótipo acadêmico que mostra um índice de criminalidade por bairro de Maceió em um mapa interativo.
+
+**Todos os dados são fictícios.** Os percentuais, ocorrências e chamados foram inventados para a demonstração e não representam estatística oficial.
+
+Site: https://lukavns.github.io/vigia/
+
+## O que tem
+
+- **Início**: resumo do cenário, ranking dos bairros e regiões prioritárias.
+- **Mapa**: bairros e zonas monitoradas no Leaflet, com filtros por nível de risco, incidência e busca.
+- **Gestão**: fila de validação de ocorrências (aprovar, rejeitar, reabrir).
+
+O site é estático e não tem backend. O login da Gestão é só ilustrativo (`admin@vigia.local` / `admin123`) e as revisões ficam salvas no `localStorage` do navegador.
 
 ## Stack
 
-- Next.js 16 + React 19
-- Route Handlers com `NextResponse`
-- Leaflet para o mapa
-- pnpm como gerenciador de pacotes
-- Dados em memória/fixtures para o MVP
-
-## Arquitetura
-
-O projeto é um app único Next full-stack:
-
-```txt
-app/
-  api/
-  mapa/
-  admin/
-components/
-lib/
-server/
-  domain/
-  application/
-  repositories/
-  http/
-```
-
-- `app`: páginas, layout e rotas HTTP do Next.
-- `app/api`: camada HTTP usando `NextResponse`.
-- `server/domain`: tipos e regras de domínio.
-- `server/application`: casos de uso.
-- `server/repositories`: persistência em memória para o MVP.
-- `lib`: fixtures, tipos compartilhados e cliente HTTP usado pelo frontend.
+Next.js 16 (export estático), React 19, TypeScript e Leaflet com tiles do OpenStreetMap.
 
 ## Rodando localmente
 
-Instale as dependências:
-
 ```bash
 pnpm install
-```
-
-Suba tudo com um comando:
-
-```bash
 pnpm dev
 ```
 
-Abra:
+O app sobe em `http://localhost:3000`.
 
-- App: `http://localhost:3000`
-- Mapa: `http://localhost:3000/mapa`
-- Gestão: `http://localhost:3000/admin`
-
-Credencial administrativa de desenvolvimento:
-
-- E-mail: `admin@vigia.local`
-- Senha: `admin123`
-
-## Scripts
+Outros scripts:
 
 ```bash
-pnpm dev        # desenvolvimento
-pnpm build      # build de produção
-pnpm start      # servidor de produção
-pnpm typecheck  # checagem TypeScript
+pnpm build      # gera o site estático em out/
+pnpm typecheck  # checagem de tipos
 ```
 
-## API Interna
+## Estrutura
 
-Rotas públicas:
+```txt
+app/          páginas (início, mapa, admin) e estilos
+components/   blocos compartilhados entre as páginas
+lib/          dados de exemplo, tipos, rótulos e a fila de ocorrências
+```
 
-- `GET /api/overview`
-- `GET /api/neighborhoods`
-- `GET /api/incidents`
-- `GET /api/incidents/[id]/reports`
-- `GET /api/mapping-priorities`
+Os dados ficam em `lib/data.ts`. Os limites dos bairros são retângulos aproximados, não as divisas reais.
 
-Rotas administrativas:
+## Deploy
 
-- `GET /api/admin/auth/me`
-- `GET /api/admin/dashboard`
-- `GET /api/admin/reports`
-- `POST /api/admin/reports/[id]/review`
+Todo push na `main` dispara o workflow em `.github/workflows/deploy.yml`, que gera o build e publica no GitHub Pages. No repositório, a fonte do Pages precisa estar como **GitHub Actions** (Settings → Pages).
