@@ -23,8 +23,8 @@ export function AdminPanel() {
   const { reports, setStatus, reset } = useReports();
   // undefined enquanto a sessão ainda não foi lida do sessionStorage
   const [user, setUser] = useState<string | null | undefined>(undefined);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState(DEMO_EMAIL);
+  const [password, setPassword] = useState(DEMO_PASSWORD);
   const [loginError, setLoginError] = useState('');
   const [tab, setTab] = useState<ReportStatus>('pending');
   const [notice, setNotice] = useState('');
@@ -45,7 +45,6 @@ export function AdminPanel() {
     }
 
     setLoginError('');
-    setPassword('');
     setUser(DEMO_EMAIL);
   };
 
