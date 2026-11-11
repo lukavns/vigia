@@ -1,78 +1,47 @@
-export interface Overview {
-  totalNeighborhoods: number;
-  totalFoodPoints: number;
-  highRiskNeighborhoods: number;
-  topRiskNeighborhood: string;
-}
+export type RiskLevel = 'critico' | 'alto' | 'moderado' | 'baixo';
+
+export type Incidence = 'low' | 'medium' | 'high' | 'unverified';
+
+export type PriorityLevel = 'alta' | 'media';
+
+/** [sul, oeste, norte, leste] */
+export type Bounds = [number, number, number, number];
 
 export interface Neighborhood {
-  id?: string;
+  id: string;
   name: string;
   population: number;
-  geometry?: string;
   score: number;
   riskLevel: RiskLevel;
+  bounds: Bounds;
 }
 
-export type RiskLevel = 'critico' | 'alto' | 'moderado' | 'medio' | 'baixo' | 'sem_dados';
-
-export interface IncidentPoint {
-  id?: string;
+export interface Zone {
+  id: string;
   name: string;
   category: string;
-  profile: IncidentProfile;
-  addressText?: string;
-  neighborhood: string;
-  longitude?: number;
-  latitude?: number;
-  source: string;
+  incidence: Incidence;
+  neighborhoodId: string;
+  latitude: number;
+  longitude: number;
 }
 
-export type IncidentProfile = 'healthy' | 'mixed' | 'ultra_processed_predominant' | 'unknown';
-
-export interface PublicCommunityReport {
-  id: string;
-  reportType: string;
-  neighborhood?: string;
-  description?: string;
-  createdAt: string;
-}
-
-export interface MappingPriority {
-  neighborhood: string;
-  population: number;
-  priorityScore: number;
-  priorityLevel: 'alta' | 'media' | 'baixa';
-  foodPoints: number;
-  reports: number;
-  transportPoints: number;
-  socialAssistanceUnits: number;
-  licensingRecords: number;
+export interface Priority {
+  neighborhoodId: string;
+  incidents: number;
+  calls: number;
   reason: string;
 }
 
-export interface AdminUser {
-  email: string;
-  role: string;
-}
+export type ReportType = 'roubo' | 'furto' | 'conflito' | 'patrulhamento' | 'prevencao';
 
-export interface AdminDashboard {
-  totalReports: number;
-  pendingReports: number;
-  approvedReports: number;
-  rejectedReports: number;
-  totalNeighborhoods: number;
-  totalFoodPoints: number;
-}
+export type ReportStatus = 'pending' | 'approved' | 'rejected';
 
-export interface AdminCommunityReport {
+export interface Report {
   id: string;
-  reportType: string;
-  neighborhood?: string;
-  description?: string;
-  latitude?: number;
-  longitude?: number;
-  photoUrl?: string;
-  status: string;
+  type: ReportType;
+  neighborhoodId: string;
+  description: string;
+  status: ReportStatus;
   createdAt: string;
 }
