@@ -1,0 +1,149 @@
+.preview-canvas {
+  aspect-ratio: 1.48;
+  background: #fff1f0;
+  display: block;
+  min-height: 320px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.preview-canvas svg {
+  height: 100%;
+  inset: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.water {
+  fill: #f6dcdf;
+}
+
+.region {
+  fill: color-mix(in srgb, var(--region) 22%, #fff);
+  stroke: color-mix(in srgb, var(--region) 55%, #fff);
+  transition: fill 200ms ease;
+}
+
+.preview-canvas:hover .region {
+  fill: color-mix(in srgb, var(--region) 30%, #fff);
+}
+
+.region.baixo {
+  --region: var(--risk-baixo);
+}
+
+.region.moderado {
+  --region: var(--risk-moderado);
+}
+
+.region.alto {
+  --region: var(--risk-alto);
+}
+
+.region.critico {
+  --region: var(--risk-critico);
+}
+
+.road {
+  stroke: var(--border);
+  stroke-dasharray: 6 4;
+  stroke-width: 2;
+}
+
+.map-pin {
+  background: var(--pin);
+  border: 3px solid #fff;
+  border-radius: 999px;
+  box-shadow: 0 6px 14px rgb(69 10 10 / 18%);
+  height: 1.5rem;
+  position: absolute;
+  width: 1.5rem;
+}
+
+.map-pin span {
+  color: var(--ink);
+  font-size: 0.72rem;
+  font-weight: 600;
+  left: 50%;
+  position: absolute;
+  top: 1.6rem;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.map-pin.patrulha {
+  --pin: var(--risk-baixo);
+  left: 24%;
+  top: 20%;
+}
+
+.map-pin.alerta {
+  --pin: var(--risk-moderado);
+  left: 55%;
+  top: 34%;
+}
+
+.map-pin.risco {
+  --pin: var(--risk-alto);
+  animation: pulse 1.8s ease-in-out infinite;
+  left: 30%;
+  top: 60%;
+}
+
+.map-pin.centro {
+  --pin: var(--risk-critico);
+  left: 68%;
+  top: 78%;
+}
+
+@keyframes pulse {
+  50% {
+    box-shadow: 0 0 0 8px rgb(217 72 47 / 18%);
+  }
+}
+
+.callout {
+  align-items: center;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: minmax(0, 1fr) minmax(200px, 0.3fr);
+  padding: 1.25rem;
+}
+
+.callout h2 {
+  margin-bottom: 0.5rem;
+}
+
+.callout p:not(.kicker) {
+  color: var(--muted);
+  margin-bottom: 0;
+  max-width: 62ch;
+}
+
+.callout-metric {
+  background: var(--accent-soft);
+  border-radius: var(--radius);
+  color: var(--accent-strong);
+  padding: 1rem;
+}
+
+.callout-metric strong {
+  display: block;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  line-height: 1;
+}
+
+.callout-metric span {
+  display: block;
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-top: 0.4rem;
+}
+
+@media (max-width: 620px) {
+  .callout {
+    grid-template-columns: 1fr;
+  }
+}

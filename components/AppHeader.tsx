@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
 
 const navItems = [
   { href: '/', label: 'Início' },
@@ -11,28 +10,12 @@ const navItems = [
 ];
 
 export function AppHeader() {
-  const pathname = usePathname();
-  const [isOnline, setIsOnline] = useState(true);
-
-  useEffect(() => {
-    const updateStatus = () => {
-      setIsOnline(navigator.onLine);
-    };
-
-    updateStatus();
-    window.addEventListener('online', updateStatus);
-    window.addEventListener('offline', updateStatus);
-
-    return () => {
-      window.removeEventListener('online', updateStatus);
-      window.removeEventListener('offline', updateStatus);
-    };
-  }, []);
+  const pathname = usePathname().replace(/\/$/, '') || '/';
 
   return (
     <header className="app-header">
-      <Link className="brand" href="/" aria-label="Vigia Maceió">
-        <span className="brand-mark">V</span>
+      <Link className="brand" href="/" aria-label="Vigia Maceió, página inicial">
+        <span className="brand-mark" aria-hidden="true">V</span>
         <span>
           <strong>Vigia Maceió</strong>
           <small>Maceió, Alagoas</small>
@@ -44,16 +27,12 @@ export function AppHeader() {
           <Link
             key={item.href}
             href={item.href}
-            className={pathname === item.href ? 'active' : undefined}
+            aria-current={pathname === item.href ? 'page' : undefined}
           >
             {item.label}
           </Link>
         ))}
       </nav>
-
-      <span className={`connection-status ${isOnline ? '' : 'offline'}`}>
-        {isOnline ? 'Online' : 'Offline'}
-      </span>
     </header>
   );
 }
